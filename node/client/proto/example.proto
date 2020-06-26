@@ -1,0 +1,21 @@
+syntax = "proto3";
+
+package com.ujon.grpcExample;
+
+service Example {
+    rpc StringToString (String) returns (String);
+    rpc RepeatedStringToRepeatedString (RepeatedString) returns (RepeatedString);
+    rpc StringToStreamFile (String) returns (stream File);
+    rpc StreamFileToString (stream File) returns (String);
+    rpc StreamFileToStreamFile (stream File) returns (stream File);
+}
+
+message String {
+    string str = 1;
+}
+message RepeatedString {
+    repeated string str = 1;
+}
+message File {
+    bytes bin = 1;
+}
